@@ -1,0 +1,235 @@
+id: 583a83a4-21e3-45db-bf88-880fdec6df34
+name: Development
+type: 1
+canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+blocks:
+- auto_size: false
+  canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  compute_settings: null
+  description: "Analyzes class distribution across 114 genres, calculating imbalance\
+    \ metrics and generating visualizations. Shows dataset is near-balanced (2.3%\
+    \ coefficient of variation) with track counts ranging 693\u2013772 per genre,\
+    \ confirmed by sorted bar chart and histogram."
+  height: 1000
+  id: 157f73ca-3813-4648-912b-bd5e0dc35930
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  name: class_distribution_viz
+  parent_id: null
+  properties: {}
+  status: 3
+  type: 1
+  variables: null
+  width: 1600
+  x: 2000
+  y: 0
+- auto_size: false
+  canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  compute_settings: null
+  description: Analyzes audio feature distributions for skewness and outliers using
+    IQR method. Generates a skewness bar chart and normalized boxplots to identify
+    features requiring transformation and those with heavy-tailed distributions.
+  height: 1000
+  id: 2befd04e-db51-4bcb-8e6b-a5798199af0a
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  name: skewness_outlier_analysis
+  parent_id: null
+  properties: {}
+  status: 3
+  type: 1
+  variables: null
+  width: 1600
+  x: 2000
+  y: 2800
+- auto_size: false
+  canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  compute_settings: null
+  description: Generates comprehensive documentation report for Spotify genre classification
+    model. Documents dataset characteristics (84.8K rows, 114 genres), preprocessing
+    pipeline (22 engineered features including interactions & log transforms), RandomForest
+    configuration (300 trees, 34.53% validation accuracy), and feature importance
+    analysis. Outputs detailed report.txt with findings and improvement recommendations.
+  height: 1000
+  id: 3bc8e353-d350-449c-aaaa-13f829fdaaaa
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  name: generate_report
+  parent_id: null
+  properties: {}
+  status: 3
+  type: 1
+  variables: null
+  width: 1600
+  x: 6000
+  y: 7000
+- auto_size: false
+  canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  compute_settings: null
+  description: Visualizes distributions of 10 key audio features (danceability, energy,
+    loudness, etc.) using histograms with KDE overlays; includes summary statistics
+    and missing value analysis. Dark theme with feature-specific colors.
+  height: 1000
+  id: 4945d6e8-f47c-4393-8c90-23601b2b4e6b
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  name: feature_distributions
+  parent_id: null
+  properties: {}
+  status: 3
+  type: 1
+  variables: null
+  width: 1600
+  x: 2000
+  y: 4200
+- auto_size: false
+  canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  compute_settings: null
+  description: Loads and analyzes music genre dataset (84.8K training, 34.2K test
+    records). Reports dataset dimensions, data types, missing values (up to 13.5%),
+    statistical summaries, and class distribution across 114 genres. Exports cleaned
+    data & metadata for downstream processing.
+  height: 1000
+  id: 642c14c9-1c04-468b-8c07-8e01acf0b173
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  name: data_overview
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 0
+  y: 0
+- auto_size: false
+  canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  compute_settings: null
+  description: "Prepares music track data for genre classification. Cleans raw CSVs,\
+    \ encodes categorical features (explicit, tempo binning), creates interactions\
+    \ (energy\xD7loudness, danceability\xD7valence), applies log-transforms to skewed\
+    \ features, imputes missing values with median, stratifies 80/20 split, and scales\
+    \ with StandardScaler\u2014all while preventing data leakage by fitting transformations\
+    \ on training data only."
+  height: 1000
+  id: 87405a3d-abb9-42d2-a042-262ac9d84e72
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  name: preprocessing_pipeline
+  parent_id: null
+  properties: {}
+  status: 3
+  type: 1
+  variables: null
+  width: 1600
+  x: 2000
+  y: 5600
+- auto_size: false
+  canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  compute_settings: null
+  description: Comprehensive exploratory data analysis and preprocessing report for
+    Spotify track genre classification (114 classes, 84.8K samples). Documents dataset
+    overview, missing values, class balance, feature distributions, correlations,
+    skewness, outliers, and preprocessing decisions including log-transforms, frequency
+    encoding, and feature engineering. Recommends LightGBM as primary model.
+  height: 1000
+  id: 87803cb7-316f-4edf-b95f-07a1a6e87920
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  name: eda_report
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 4
+  variables: null
+  width: 1600
+  x: 4000
+  y: 5600
+- auto_size: false
+  canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  compute_settings: null
+  description: Computes Pearson correlation matrix across 10 audio features and visualizes
+    relationships in a lower-triangle heatmap. Identifies and prints top 10 feature
+    correlations (e.g., energy-loudness, energy-acousticness) for feature engineering
+    insights.
+  height: 1000
+  id: b845bd57-84ec-4944-8deb-8295bcdfa45f
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  name: correlation_heatmap
+  parent_id: null
+  properties: {}
+  status: 3
+  type: 1
+  variables: null
+  width: 1600
+  x: 2000
+  y: 1400
+- auto_size: false
+  canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  compute_settings: null
+  description: Generates a comprehensive markdown report documenting the 114-class
+    Spotify genre classification project, including dataset overview, preprocessing
+    decisions, feature engineering logic, Random Forest model selection, performance
+    metrics (34.53% validation accuracy), and feature importance rankings from the
+    trained model.
+  height: 1000
+  id: c6726235-5779-4d0b-8539-24b16e05588e
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  name: generate_report_v2
+  parent_id: null
+  properties: {}
+  status: 1
+  type: 1
+  variables: null
+  width: 1600
+  x: 6000
+  y: 8400
+edges:
+- canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  id: 15972834-dbb8-474c-9f09-aa3269e6f87a
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  source: b845bd57-84ec-4944-8deb-8295bcdfa45f
+  target: 87803cb7-316f-4edf-b95f-07a1a6e87920
+- canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  id: 2886c5aa-46aa-41b0-bcaa-2535ab41600c
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  source: 87405a3d-abb9-42d2-a042-262ac9d84e72
+  target: 87803cb7-316f-4edf-b95f-07a1a6e87920
+- canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  id: 33602252-b5cc-4a5f-ab53-013852a1ba2a
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  source: 642c14c9-1c04-468b-8c07-8e01acf0b173
+  target: 87803cb7-316f-4edf-b95f-07a1a6e87920
+- canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  id: 73ddb4b0-ad26-446b-bb6e-3a0cbcc4504f
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  source: 642c14c9-1c04-468b-8c07-8e01acf0b173
+  target: 4945d6e8-f47c-4393-8c90-23601b2b4e6b
+- canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  id: 7e3b6aad-c7cb-47a5-b735-885d8a614068
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  source: 2befd04e-db51-4bcb-8e6b-a5798199af0a
+  target: 87803cb7-316f-4edf-b95f-07a1a6e87920
+- canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  id: 8d3d2ca4-6ba6-4078-a468-83d20687c9da
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  source: 4945d6e8-f47c-4393-8c90-23601b2b4e6b
+  target: 87803cb7-316f-4edf-b95f-07a1a6e87920
+- canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  id: 924c1e9d-4ecb-4720-9578-66811091bd70
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  source: 642c14c9-1c04-468b-8c07-8e01acf0b173
+  target: 157f73ca-3813-4648-912b-bd5e0dc35930
+- canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  id: a8df6458-c5a2-4c94-b110-5be2a2fffc3c
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  source: 642c14c9-1c04-468b-8c07-8e01acf0b173
+  target: 87405a3d-abb9-42d2-a042-262ac9d84e72
+- canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  id: d383af69-add6-4953-905e-b7fb8a7adc4e
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  source: 642c14c9-1c04-468b-8c07-8e01acf0b173
+  target: b845bd57-84ec-4944-8deb-8295bcdfa45f
+- canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  id: ed3ce8f1-7543-46c2-8404-89d31d6e5fdb
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  source: 642c14c9-1c04-468b-8c07-8e01acf0b173
+  target: 2befd04e-db51-4bcb-8e6b-a5798199af0a
+- canvas_id: f8416380-a331-4c5f-9fc7-319fbea771e4
+  id: f1f5edaa-3451-4ff6-97c3-9767c35d56a3
+  layer_id: 583a83a4-21e3-45db-bf88-880fdec6df34
+  source: 157f73ca-3813-4648-912b-bd5e0dc35930
+  target: 87803cb7-316f-4edf-b95f-07a1a6e87920
